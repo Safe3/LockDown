@@ -7,10 +7,10 @@ Does not run in a production environment without reading the code. There are set
 
 #To Do
 
-Adapter for RedHat 7
-Adapter for Debian 8
-Adapter for FreeBSD
-Add other systems
-Create a log file
-Add aplication hardening
-Add report with auditor name 
+- Adapter for RedHat 7
+- Adapter for Debian 8
+- Adapter for FreeBSD
+- Add other systems
+- Create a log file
+- Add aplication hardening
+- Add report with auditor name 
