@@ -4,11 +4,38 @@
 
 ##############################################################################
 
-1 - Install ruby and ruby gems
+You can choose running installer or do manual install
 
-# yum install ruby rubygems
+For Installer, run:
 
-2 - Install gems
+# bash install.sh
+
+For Manual, follow the instrctions below
+
+1 - Install Pre Req
+
+# yum install gcc-c++ patch readline readline-devel zlib zlib-devel 
+# yum install libyaml-devel libffi-devel openssl-devel make 
+# yum install bzip2 autoconf automake libtool bison iconv-devel rubygems
+
+2 - Install RVM
+	
+# curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+# curl -L get.rvm.io | bash -s stable
+# source /etc/profile.d/rvm.sh
+# rvm reload
+
+	2.1 - Verify Dependencies
+		# rvm requirements run
+
+3 - Install Ruby
+
+# rvm install 2.2.2
+# rvm use 2.2.2 --default
+
+
+
+Install gems
 
 # gem install docopt scriptster progressbar
 
