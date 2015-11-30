@@ -1,0 +1,17 @@
+##############################################################################
+
+			Instructions for install lockdown
+
+##############################################################################
+
+1 - Install ruby and ruby gems
+
+# yum install ruby rubygems
+
+2 - Install gems
+
+# gem install docopt scriptster progressbar
+
+3 - Export Gems PATH
+
+# export RUBYOPT="rubygems"
