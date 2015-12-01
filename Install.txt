@@ -35,10 +35,10 @@ For Manual, follow the instrctions below
 
 
 
-Install gems
+4 - Install gems
 
 # gem install docopt scriptster progressbar
 
-3 - Export Gems PATH
+5 - Export Gems PATH
 
 # export RUBYOPT="rubygems"
