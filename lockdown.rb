@@ -63,123 +63,128 @@ end
 options = {accounts: false, boot: false, ssh: false, ipv6: false, services: false, kernel: false, other: false, audit: false, ntpd: false, pam: false, password: false, permission: false, removesoft: false, apllyall: false, version: false, message: true}
 #options = { "accounts" => false, "boot" => false, "ssh" => false, "ipv6" => false, "services" => false, "kernel" => false, "other" => false, "audit" => false, "ntpd" => false, "pam" => false, "password" => false, "permission" => false, "removesoft" => false, "apllyall" => false, "version" => false, "message" => true }
 
+begin
+    
+    OptionParser.new do |opts|
+    # banner and separator are the usage description showed with '--help' or '-h'
+    opts.banner = "Usage: lockdown.rb [options]"
+    opts.separator "Does not run in a production environment without reading the code. There are settings that can affect directly your environment."
+    opts.separator "Options:"
+    # options (switch - true/false)
+        opts.on("--accounts", "Apply config on Accounts and Environment") do |e|
+            options[:accounts] = e 
+        end
+        opts.on("--boot", "Apply config on Boot Settings") do |b|
+            options[:boot] = b
+        end
+        opts.on("--ssh", "Apply config on SSH Configuration") do |c|
+            options[:ssh] = c
+        end
+        opts.on("--ipv6", "Disable IPv6") do |i|
+            options[:ipv6] = i
+        end
+        opts.on("--services", "Disable Services") do |d|
+            options[:services] = d
+        end
+        opts.on("--kernel", "Apply config on kernel Parameters") do |k|
+            options[:kernel] = k
+        end
+        opts.on("--others", "Additional Process Hardening") do |o|
+            options[:others] = o
+        end
+        opts.on("--audit", "Logging and Auditing") do |l|
+            options[:audit] = l
+        end
+        opts.on("--ntpd", "Configure NTPD") do |n|
+            options[:ntpd] = n
+        end
+        opts.on("--pam", "Pam configuration") do |p|
+            options[:pam] = p
+        end
+        opts.on("--password", "Password configuration") do |w|
+            options[:password] = w
+        end
+        opts.on("--permission", "Verifiy Permissions") do |f|
+            options[:permission] = f
+        end
+        opts.on("--removesoft", "Remove Unnecessary Software - *Create a list of the software to be uninstalled within /tmp/soft.lst") do |r|
+            options[:removesoft] = r
+        end
+        opts.on("-A", "--apllyall", "Apply all configurations") do |x|
+            options[:apllyall] = x
+        end
+        opts.on("-v", "--version", "Show Version") do |v|
+            options[:version] = v
+        end
+        opts.on("--message", "Show This Message") do |m|
+            options[:message] = m
+        end
 
-OptionParser.new do |opts|
-# banner and separator are the usage description showed with '--help' or '-h'
-opts.banner = "Usage: lockdown.rb [options]"
-opts.separator "Does not run in a production environment without reading the code. There are settings that can affect directly your environment."
-opts.separator "Options:"
-# options (switch - true/false)
-    opts.on("--accounts", "Apply config on Accounts and Environment") do |e|
-        options[:accounts] = e 
+    end.parse!
+
+    if options[:accounts]
+        puts "Applying config on Accounts and Environment..."
+        AccountsAndEnvironment()
     end
-    opts.on("--boot", "Apply config on Boot Settings") do |b|
-        options[:boot] = b
+    if options[:boot]
+        puts "Applying config on Boot Settings..."
+        SecureBootAndServices()
     end
-    opts.on("--ssh", "Apply config on SSH Configuration") do |c|
-        options[:ssh] = c
+    if options[:ssh]
+        puts "Applying config on SSH Configuration..."
+        ConfigureSSH()
     end
-    opts.on("--ipv6", "Disable IPv6") do |i|
-        options[:ipv6] = i
+    if options[:ipv6]
+        puts "Disabling IPv6..."
+        DisableIPV6()
     end
-    opts.on("--services", "Disable Services") do |d|
-        options[:services] = d
+    if options[:services]
+        puts "Disabling Services..."
+        DisableServices()
     end
-    opts.on("--kernel", "Apply config on kernel Parameters") do |k|
-        options[:kernel] = k
+    if options[:kernel]
+        puts "Applying config on kernel Parameters..."
+        KernelParameters()
     end
-    opts.on("--others", "Additional Process Hardening") do |o|
-        options[:others] = o
+    if options[:others]
+        puts "Applying Additional Process Hardening..."
+        Others()
     end
-    opts.on("--audit", "Logging and Auditing") do |l|
-        options[:audit] = l
+    if options[:audit]
+        puts "Applying Logging and Auditing..."
+        LoggingAndAuditing()
     end
-    opts.on("--ntpd", "Configure NTPD") do |n|
-        options[:ntpd] = n
+    if options[:ntpd]
+        puts "Configuring NTPD..."
+        Ntp()
     end
-    opts.on("--pam", "Pam configuration") do |p|
-        options[:pam] = p
+    if options[:pam]
+        puts "Applying Pam configuration..."
+        Pam()
     end
-    opts.on("--password", "Password configuration") do |w|
-        options[:password] = w
+    if options[:password]
+        puts "Applying Password configuration..."
+        Password()
     end
-    opts.on("--permission", "Verifiy Permissions") do |f|
-        options[:permission] = f
+    if options[:permission]
+        puts "Verifiying Permissions..."
+        Permissions()
     end
-    opts.on("--removesoft", "Remove Unnecessary Software - *Create a list of the software to be uninstalled within /tmp/soft.lst") do |r|
-        options[:removesoft] = r
+    if options[:removesoft]
+        puts "Removing Unnecessary Software..."
+        RemoveSoft()
     end
-    opts.on("-A", "--apllyall", "Apply all configurations") do |x|
-        options[:apllyall] = x
+    if options[:apllyall]
+        puts "Applying All Configuration..."
+        ApplyAll()
     end
-    opts.on("-v", "--version", "Show Version") do |v|
-        options[:version] = v
+    if options[:version]
+        puts "Beta Version - 0.1"
     end
-    opts.on("--message", "Show This Message") do |m|
-        options[:message] = m
+    if options[:message]
+        puts "Show Options: lockdown -h or --help"
     end
 
-end.parse!
-
-if options[:accounts]
-    puts "Applying config on Accounts and Environment..."
-    AccountsAndEnvironment()
-end
-if options[:boot]
-    puts "Applying config on Boot Settings..."
-    SecureBootAndServices()
-end
-if options[:ssh]
-    puts "Applying config on SSH Configuration..."
-    ConfigureSSH()
-end
-if options[:ipv6]
-    puts "Disabling IPv6..."
-    DisableIPV6()
-end
-if options[:services]
-    puts "Disabling Services..."
-    DisableServices()
-end
-if options[:kernel]
-    puts "Applying config on kernel Parameters..."
-    KernelParameters()
-end
-if options[:others]
-    puts "Applying Additional Process Hardening..."
-    Others()
-end
-if options[:audit]
-    puts "Applying Logging and Auditing..."
-    LoggingAndAuditing()
-end
-if options[:ntpd]
-    puts "Configuring NTPD..."
-    Ntp()
-end
-if options[:pam]
-    puts "Applying Pam configuration..."
-    Pam()
-end
-if options[:password]
-    puts "Applying Password configuration..."
-    Password()
-end
-if options[:permission]
-    puts "Verifiying Permissions..."
-    Permissions()
-end
-if options[:removesoft]
-    puts "Removing Unnecessary Software..."
-    RemoveSoft()
-end
-if options[:apllyall]
-    puts "Applying All Configuration..."
-    ApplyAll()
-end
-if options[:version]
-    puts "Beta Version - 0.1"
-end
-if options[:message]
-    puts "Show Options: lockdown -h or --help"
+rescue Interrupt => e
+    puts "execution stopped"
 end
