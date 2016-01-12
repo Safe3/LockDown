@@ -12,20 +12,21 @@ end
 
 require_gem()
 
-#################################################################################
-#
-#   Lockdown
-# ------------------
-# 
-#
-# Lockdown is a system for applied security baseline controls.
-# In Free version, the system apply security baseline on S.O.
-# In Enterprise version, the system apply security baselise on S.O and Applicationss
-#
-# Copyright 2015 Junior Carreiro
-# Web site: 
-# mail: w.carreirojunior@protonmail.com
-#
+=begin
+   
+ Lockdown
+ ------------------
+ 
+
+ Lockdown is a system for applied security baseline controls.
+ In Free version, the system apply security baseline on S.O.
+ In Enterprise version, the system apply security baselise on S.O and Applicationss
+
+ Copyright 2015 Junior Carreiro
+ Web site: 
+ mail: w.carreirojunior@protonmail.com
+
+=end
 ######################################################################################
 # Program information
 ######################################################################################
