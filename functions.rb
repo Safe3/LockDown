@@ -13,6 +13,10 @@ def error_message()
 	message="[ " + "ERROR".red + " ]"
 end
 
+def recommendation_message()
+	message="[ " + "RECOMMENDATION".cyan + " ]"
+end
+
 #Gems
 
 def require_gem()
@@ -22,136 +26,136 @@ def require_gem()
 end
 
 
-#Scripts
+#Scripts for system based on Red Hat 6
 
 def AccountsAndEnvironment()
-	cmd = "includes/AccountsAndEnvironment.sh"
+	cmd = "includes/Redhat6/AccountsAndEnvironment.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "User Accounts and Environment".ljust(60) + ok_message
 		else
 		    puts "User Accounts and Environment".ljust(60) + error_message
-		end 
+		end
 sleep 1
 end
 def ConfigureSSH()
-	cmd = "includes/ConfigureSSH.sh"
+	cmd = "includes/Redhat6/ConfigureSSH.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Configure SSH".ljust(60) + ok_message
 		else
 		    puts "Configure SSH".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def DisableIPV6()
-	cmd = "includes/DisableIPV6.sh"
+	cmd = "includes/Redhat6/DisableIPV6.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Configure IPv6 ".ljust(60) + ok_message
 		else
 		    puts "Configure IPv6 ".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def DisableServices()
-	cmd = "includes/DisableServices.sh"
+	cmd = "includes/Redhat6/DisableServices.sh"
 	bash(cmd)
 		if bash(cmd) == true
 	    puts "Disable services".ljust(60) + ok_message
 	else
 	    puts "Disable services".ljust(60) + error_message
-	end 
+	end
 	sleep 1
 end
 def KernelParameters()
-	cmd = "includes/KernelParameters.sh"
+	cmd = "includes/Redhat6/KernelParameters.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Kernel Parameters".ljust(60) + ok_message
 		else
 		    puts "Kernel Parameters".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def Others()
-	cmd = "includes/Others.sh"
+	cmd = "includes/Redhat6/Others.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Additional Process Hardening".ljust(60) + ok_message
 		else
 		    puts "Additional Process Hardening".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def LoggingAndAuditing()
-	cmd = "includes/LoggingAndAuditing.sh"
+	cmd = "includes/Redhat6/LoggingAndAuditing.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Logging and Auditing".ljust(60) + ok_message
 		else
 		    puts "Logging and Auditing".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def Ntp()
-	cmd = "includes/Ntpd.sh"
+	cmd = "includes/Redhat6/Ntpd.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Configure NTPD".ljust(60) + ok_message
 		else
 		    puts "Configure NTPD".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def Pam()
-	cmd = "includes/Pam.sh"
+	cmd = "includes/Redhat6/Pam.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Pam configuration".ljust(60) + ok_message
 		else
 		    puts "Pam configuration".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def Password()
-	cmd = "includes/Password.sh"
+	cmd = "includes/Redhat6/Password.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Password configuration".ljust(60) + ok_message
 		else
 		    puts "Password configuration".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def Permissions()
-	cmd = "includes/Permissions.sh"
+	cmd = "includes/Redhat6/Permissions.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Verifiy Permissions".ljust(60) + ok_message
 		else
 		    puts "Verifiy Permissions".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def RemoveSoft()
-	cmd = "includes/RemoveSoft.sh"
+	cmd = "includes/Redhat6/RemoveSoft.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Remove Unnecessary Software".ljust(60) + ok_message
 		else
 		    puts "Remove Unnecessary Software".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 def SecureBootAndServices()
-	cmd = "includes/SecureBootAndServices.sh"
+	cmd = "includes/Redhat6/SecureBootAndServices.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Secure Boot Settings".ljust(60) + ok_message
 		else
 		    puts "Secure Boot Settings".ljust(60) + error_message
-		end 
+		end
 		sleep 1
 end
 
@@ -160,132 +164,132 @@ end
 
 def ApplyAll()
 	#AccountsAndEnvironment
-	cmd = "includes/AccountsAndEnvironment.sh"
+	cmd = "includes/Redhat6/AccountsAndEnvironment.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "User Accounts and Environment".ljust(60) + ok_message
 		else
 		    puts "User Accounts and Environment".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#ConfigureSSH
-	cmd = "includes/ConfigureSSH.sh"
+	cmd = "includes/Redhat6/ConfigureSSH.sh"
 	bash(cmd)
 		if bash(cmd) == true
 			puts "Configure SSH".ljust(60) + ok_message
 		else
 	    	puts "Configure SSH".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#DisableIPV6
-	cmd = "includes/DisableIPV6.sh"
+	cmd = "includes/Redhat6/DisableIPV6.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Configure IPv6 ".ljust(60) + ok_message
 		else
 		    puts "Configure IPv6 ".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#DisableServices
-	cmd = "includes/DisableServices.sh"
+	cmd = "includes/Redhat6/DisableServices.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Disable services".ljust(60) + ok_message
 		else
 	    	puts "Disable services".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#KernelParameters
-	cmd = "includes/KernelParameters.sh"
+	cmd = "includes/Redhat6/KernelParameters.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Kernel Parameters".ljust(60) + ok_message
 		else
 		    puts "Kernel Parameters".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#Others
-	cmd = "includes/Others.sh"
+	cmd = "includes/Redhat6/Others.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Additional Process Hardening".ljust(60) + ok_message
 		else
 		    puts "Additional Process Hardening".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#LoggingAndAuditing
-	cmd = "includes/LoggingAndAuditing.sh"
+	cmd = "includes/Redhat6/LoggingAndAuditing.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Logging and Auditing".ljust(60) + ok_message
 		else
 		    puts "Logging and Auditing".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#Ntp
-	cmd = "includes/Ntpd.sh"
+	cmd = "includes/Redhat6/Ntpd.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Configure NTPD".ljust(60) + ok_message
 		else
 		    puts "Configure NTPD".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#Pam
-	cmd = "includes/Pam.sh"
+	cmd = "includes/Redhat6/Pam.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Pam configuration".ljust(60) + ok_message
 		else
 		    puts "Pam configuration".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#Password
-	cmd = "includes/Password.sh"
+	cmd = "includes/Redhat6/Password.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Password configuration".ljust(60) + ok_message
 		else
 		    puts "Password configuration".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#Permissions
-	cmd = "includes/Permissions.sh"
+	cmd = "includes/Redhat6/Permissions.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Verifiy Permissions".ljust(60) + ok_message
 		else
 		    puts "Verifiy Permissions".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#RemoveSoft
-	cmd = "includes/RemoveSoft.sh"
+	cmd = "includes/Redhat6/RemoveSoft.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Remove Unnecessary Software".ljust(60) + ok_message
 		else
 		    puts "Remove Unnecessary Software".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 
 	#SecureBootAndServices
-	cmd = "includes/SecureBootAndServices.sh"
+	cmd = "includes/Redhat6/SecureBootAndServices.sh"
 	bash(cmd)
 		if bash(cmd) == true
 		    puts "Secure Boot Settings".ljust(60) + ok_message
 		else
 		    puts "Secure Boot Settings".ljust(60) + error_message
-		end 
+		end
 	sleep 1
 end
